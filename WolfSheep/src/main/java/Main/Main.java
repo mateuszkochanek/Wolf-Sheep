@@ -11,7 +11,6 @@ import javax.swing.JTextField;
 
 import wolfSheepSimulation.WolfSheepSimulation;
 
-// TODO tu będzie wczytanie danych
 public class Main extends JFrame {
     public JTextField widthField;
     public JTextField heightField;
@@ -95,8 +94,8 @@ class MyConfirmButton extends JButton implements ActionListener {
             Input.setVisible(false);
         } catch(NumberFormatException ex) {
             Input.errorLabel.setText("Invalid input");
-        } //catch(NullPointerException ex) {
-            //Input.errorLabel.setText("Empty input");
-        //}
+        } catch(NullPointerException ex) {
+            Input.errorLabel.setText("Empty input");
+        }
     }
 }
