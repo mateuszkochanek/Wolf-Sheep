@@ -55,7 +55,14 @@ public class WolfSheepSimulation extends JFrame {
         sheep = new ArrayList<Sheep>();
         for(int i = 0; i < sheepAmount; i++)
             sheep.add(new Sheep(this));
+        StartSheepWolf();
 
+    }
+
+    void StartSheepWolf(){
+        wolf.start();
+        for(Sheep sheepo : sheep)
+            sheepo.start();
     }
     
 

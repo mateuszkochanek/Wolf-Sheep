@@ -7,6 +7,7 @@ import wolfSheepSimulation.WolfSheepSimulation;
 public class Sheep extends Thread {
     WolfSheepSimulation simulation;
     public Point sheepPoint;
+    private boolean isAlive = true;
     public Sheep(WolfSheepSimulation simulationReference) {
         simulation = simulationReference;
         boolean iscreated = false;
@@ -21,5 +22,10 @@ public class Sheep extends Thread {
 
 	public void run(){
         
+    }
+
+    public void IsDead(){
+        isAlive = false;
+        simulation.sheep.remove(this);
     }
 }
