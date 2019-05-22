@@ -12,19 +12,19 @@ import animals.*;
 
 
 public class WolfSheepSimulation extends JFrame {
-    public final Color color = new Color(29,130,26);
+    public final Color Green = new Color(29,130,26);
     public JButton[][] Board;
     public Random generator = new Random();
     public Wolf wolf;
     public ArrayList<Sheep> sheep;
     public int height;
     public int width;
-    public int mseconds;
+    public int delay;
     public int sheepAmount;
     public WolfSheepSimulation(int w, int h, int ms, int sa) {
         height = h;
         width = w;
-        mseconds = ms;
+        delay = ms;
         sheepAmount = sa;
         InitUI();
         InitSheepWolf();
@@ -43,7 +43,7 @@ public class WolfSheepSimulation extends JFrame {
             for(int j = 0; j < width; j++){
                 Board[i][j] = new JButton();
                 Board[i][j].setPreferredSize(new Dimension(5,5));
-                Board[i][j].setBackground(color);
+                Board[i][j].setBackground(Green);
                 this.add(Board[i][j]);
             }
         }

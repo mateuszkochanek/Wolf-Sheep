@@ -21,16 +21,14 @@ public class Wolf extends Thread {
             while(simulation.sheep.size() > 0) {
                 if(food>0){
                     this.food--;
-                    System.out.println("foodo foodo foodo  ");
                 } else {
                     Move();
                     simulation.validate();
-                    System.out.println("boom boom boom");
                 }
                 try{
-                    simulation.Board.wait(400);
-                } catch (Exception e){
-                    System.out.println("cos sie zepsulo");
+                    simulation.Board.wait(simulation.generator.nextInt(simulation.delay+1)+(simulation.delay/2));
+                } catch (Exception ex){
+                    System.out.println(ex.getMessage());
                 }
             }
         }
@@ -60,7 +58,7 @@ public class Wolf extends Thread {
        ArrayList<Point> minimalDistancePoints = FindPointsWithMinimaldistance(sheepPointsMinDist,minDistance);
        randIndex = simulation.generator.nextInt(minimalDistancePoints.size());
        movingPoint = minimalDistancePoints.get(randIndex);
-       simulation.Board[wolfPoint.x][wolfPoint.y].setBackground(simulation.color);
+       simulation.Board[wolfPoint.x][wolfPoint.y].setBackground(simulation.Green);
        wolfPoint = new Point(movingPoint.x,movingPoint.y);
        if(simulation.Board[wolfPoint.x][wolfPoint.y].getBackground()==Color.WHITE){
             for(Sheep sheepo : sheepMinDist ) {
@@ -81,13 +79,13 @@ public class Wolf extends Thread {
         for(Point point : availablePoints){
             for(Point pointSheep : sheepPointsMinDist){
                 distance=Point.DistanceOfTwoPoints(point,pointSheep);
-                if(distance < minDistance || distance == 0){
+                if(distance < minDistance){
                     mindistPoints.add(point);
                     break;
                 }
             }
         }
-        System.out.println(mindistPoints.size() + "    ");
+        //System.out.println(mindistPoints.size() + "    ");
         return mindistPoints;
     }
 
@@ -100,7 +98,7 @@ public class Wolf extends Thread {
                 }
             }
         }
-        System.out.println(availablePoints.size() + "    ");
+        //System.out.println(availablePoints.size() + "    ");
         return availablePoints;
     }
 }
