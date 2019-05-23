@@ -1,2 +1,3 @@
 # Wolf-Sheep
-Symulacja stworzona na potrzeby laboratoriów z Kursu Programowania w 2019.
+Simulation of a Wolf that chases and eats escaping Sheep.
+Created for programming course laboratories on second semester of Computer Science(2019).
